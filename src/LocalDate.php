@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -15,12 +15,12 @@ use DateTimeInterface;
 use JsonSerializable;
 use Stringable;
 
-use function intdiv;
-use function is_int;
-use function min;
-use function str_pad;
+//use function intdiv;
+//use function is_int;
+//use function min;
+//use function str_pad;
 
-use const STR_PAD_LEFT;
+//use const STR_PAD_LEFT;
 
 /**
  * A date without a time-zone in the ISO-8601 calendar system, such as `2007-12-03`.
@@ -848,7 +848,7 @@ final class LocalDate implements JsonSerializable, Stringable
         return ($this->year < 1000 && $this->year > -1000
             ? (
                 $this->year < 0
-                    ? '-' . str_pad((string) -$this->year, 4, '0', STR_PAD_LEFT)
+                    ? '-' . str_pad((string) -$this->year, 4, '0', \STR_PAD_LEFT)
                     : str_pad((string) $this->year, 4, '0', STR_PAD_LEFT)
             )
             : $this->year
