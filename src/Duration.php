@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -9,15 +9,15 @@ use Brick\DateTime\Utility\Math;
 use JsonSerializable;
 use Stringable;
 
-use function assert;
-use function intdiv;
-use function is_int;
-use function preg_match;
-use function rtrim;
-use function str_pad;
+//use function assert;
+//use function intdiv;
+//use function is_int;
+//use function preg_match;
+//use function rtrim;
+//use function str_pad;
 
-use const STR_PAD_LEFT;
-use const STR_PAD_RIGHT;
+//use const STR_PAD_LEFT;
+//use const STR_PAD_RIGHT;
 
 /**
  * Represents a duration of time measured in seconds.
@@ -800,7 +800,7 @@ final class Duration implements JsonSerializable, Stringable
         $string .= (($seconds === 0 && $negative) ? '-0' : $seconds);
 
         if ($nanos !== 0) {
-            $string .= '.' . rtrim(str_pad((string) $nanos, 9, '0', STR_PAD_LEFT), '0');
+            $string .= '.' . rtrim(str_pad((string) $nanos, 9, '0', \STR_PAD_LEFT), '0');
         }
 
         return $string . 'S';
