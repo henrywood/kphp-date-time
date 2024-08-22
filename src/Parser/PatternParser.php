@@ -1,11 +1,11 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime\Parser;
 
-use function preg_match;
-use function sprintf;
+//use function preg_match;
+//use function sprintf;
 
 /**
  * Matches a regular expression pattern to a set of date-time fields.
