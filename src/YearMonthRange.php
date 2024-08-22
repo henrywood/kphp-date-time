@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -24,14 +24,19 @@ use Stringable;
  */
 class YearMonthRange implements IteratorAggregate, Countable, JsonSerializable, Stringable
 {
+        private YearMonth $start;
+        private YearMonth $end;
+    
     /**
      * @param YearMonth $start The start year-month, inclusive.
      * @param YearMonth $end   The end year-month, inclusive, validated as not before the start year-month.
      */
     private function __construct(
-        private readonly YearMonth $start,
-        private readonly YearMonth $end,
+        YearMonth $start,
+        YearMonth $end
     ) {
+        $this->start = $start;
+        $this->end = $end;
     }
 
     /**
