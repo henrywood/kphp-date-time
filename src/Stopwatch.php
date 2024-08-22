@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -9,7 +9,7 @@ namespace Brick\DateTime;
  */
 final class Stopwatch
 {
-    private readonly Clock $clock;
+    private Clock $clock;
 
     /**
      * The total time the stopwatch has been running, excluding the time elapsed since it was started.
