@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -11,10 +11,10 @@ use Brick\DateTime\Parser\IsoParsers;
 use JsonSerializable;
 use Stringable;
 
-use function is_int;
-use function str_pad;
+//use function is_int;
+//use function str_pad;
 
-use const STR_PAD_LEFT;
+//use const STR_PAD_LEFT;
 
 /**
  * Represents a year in the proleptic calendar.
@@ -24,12 +24,15 @@ final class Year implements JsonSerializable, Stringable
     public const MIN_VALUE = LocalDate::MIN_YEAR;
     public const MAX_VALUE = LocalDate::MAX_YEAR;
 
+    private int $year;
+    
     /**
      * @param int $year The year, validated.
      */
     private function __construct(
-        private readonly int $year,
+        int $year
     ) {
+        $this->year = $year;
     }
 
     /**
