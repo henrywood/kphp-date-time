@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -12,24 +12,29 @@ use Brick\DateTime\Utility\Math;
 use JsonSerializable;
 use Stringable;
 
-use function is_int;
-use function str_pad;
+//use function is_int;
+//use function str_pad;
 
-use const STR_PAD_LEFT;
+//use const STR_PAD_LEFT;
 
 /**
  * Represents the combination of a year and a month.
  */
 final class YearMonth implements JsonSerializable, Stringable
 {
+        private int $year;
+        private int $month;
+    
     /**
      * @param int        $year  The year, validated from MIN_YEAR to MAX_YEAR.
      * @param int<1, 12> $month The month.
      */
     private function __construct(
-        private readonly int $year,
-        private readonly int $month,
+        int $year,
+        int $month,
     ) {
+        $this->year = $year;
+        $this->month = $month;
     }
 
     /**
@@ -327,7 +332,7 @@ final class YearMonth implements JsonSerializable, Stringable
         return ($this->year < 1000 && $this->year > -1000
             ? (
                 $this->year < 0
-                    ? '-' . str_pad((string) -$this->year, 4, '0', STR_PAD_LEFT)
+                    ? '-' . str_pad((string) -$this->year, 4, '0', \STR_PAD_LEFT)
                     : str_pad((string) $this->year, 4, '0', STR_PAD_LEFT)
             )
             : $this->year
