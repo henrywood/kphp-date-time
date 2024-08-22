@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime\Clock;
 
@@ -18,8 +18,8 @@ final class OffsetClock implements Clock
      * @param Duration $offset         The offset to apply to the clock.
      */
     public function __construct(
-        private readonly Clock $referenceClock,
-        private readonly Duration $offset,
+        private Clock $referenceClock,
+        private Duration $offset,
     ) {
     }
 
