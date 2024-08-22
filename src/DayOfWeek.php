@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -9,15 +9,15 @@ use JsonSerializable;
 /**
  * Represents a day-of-week such as Tuesday.
  */
-enum DayOfWeek: int implements JsonSerializable
+final class DayOfWeek: int implements JsonSerializable
 {
-    case MONDAY = 1;
-    case TUESDAY = 2;
-    case WEDNESDAY = 3;
-    case THURSDAY = 4;
-    case FRIDAY = 5;
-    case SATURDAY = 6;
-    case SUNDAY = 7;
+    const MONDAY = 1;
+    const TUESDAY = 2;
+    const WEDNESDAY = 3;
+    const THURSDAY = 4;
+    const FRIDAY = 5;
+    const SATURDAY = 6;
+    const SUNDAY = 7;
 
     /**
      * Returns the current day-of-week in the given time-zone, according to the given clock.
