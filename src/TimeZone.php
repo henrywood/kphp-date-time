@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -9,7 +9,7 @@ use DateTimeImmutable;
 use DateTimeZone;
 use Stringable;
 
-use const PHP_VERSION_ID;
+//use const PHP_VERSION_ID;
 
 /**
  * A time-zone. This is the parent class for `TimeZoneOffset` and `TimeZoneRegion`.
