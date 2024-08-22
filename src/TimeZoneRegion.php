@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -17,12 +17,15 @@ use Exception;
  */
 final class TimeZoneRegion extends TimeZone
 {
+    private DateTimeZone $zone;
+    
     /**
      * Private constructor. Use a factory method to obtain an instance.
      */
     private function __construct(
-        private readonly DateTimeZone $zone,
+        DateTimeZone $zone,
     ) {
+        $this->zone = $zone;
     }
 
     /**
