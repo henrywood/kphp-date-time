@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime\Utility;
 
 use ArithmeticError;
 
-use function intdiv;
-use function is_float;
+//use function intdiv;
+//use function is_float;
 
 /**
  * Internal utility class for calculations on integers.
