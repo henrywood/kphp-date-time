@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -15,6 +15,8 @@ use DateTimeZone;
  */
 final class TimeZoneOffset extends TimeZone
 {
+    private int $totalSeconds;
+    
     /**
      * The string representation of this time-zone offset.
      *
@@ -30,8 +32,9 @@ final class TimeZoneOffset extends TimeZone
      * @param int $totalSeconds The total offset in seconds, validated from -64800 to +64800.
      */
     private function __construct(
-        private readonly int $totalSeconds,
+        int $totalSeconds,
     ) {
+        $this->totalSeconds = $totalSeconds;
     }
 
     /**
