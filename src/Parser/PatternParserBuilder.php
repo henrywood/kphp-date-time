@@ -1,14 +1,14 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime\Parser;
 
 use RuntimeException;
 
-use function array_merge;
-use function array_pop;
-use function preg_quote;
+//use function array_merge;
+//use function array_pop;
+//use function preg_quote;
 
 /**
  * Builds a PatternParser with a fluent API.
