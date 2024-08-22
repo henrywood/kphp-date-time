@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -11,23 +11,25 @@ use Brick\DateTime\Parser\IsoParsers;
 use JsonSerializable;
 use Stringable;
 
-use function is_int;
+//use function is_int;
 
 /**
  * A month-day in the ISO-8601 calendar system, such as `--12-03`.
  */
 final class MonthDay implements JsonSerializable, Stringable
 {
+    private int $month;
+    private int $day;
+    
     /**
      * Private constructor. Use of() to obtain an instance.
      *
      * @param int<1, 12> $month The month-of-year.
      * @param int<1, 31> $day   The day-of-month, valid for this month.
      */
-    private function __construct(
-        private readonly int $month,
-        private readonly int $day,
-    ) {
+    private function __construct(int $month, int $day) {
+        $this->month = $month;
+        $this->day = $day;
     }
 
     /**
