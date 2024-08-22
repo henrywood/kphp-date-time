@@ -1,12 +1,12 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
 use RuntimeException;
 
-use function sprintf;
+//use function sprintf;
 
 /**
  * This exception is used to indicate problems with creating, querying and manipulating date-time objects.
