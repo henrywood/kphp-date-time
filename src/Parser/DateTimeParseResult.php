@@ -1,11 +1,11 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime\Parser;
 
-use function array_shift;
-use function sprintf;
+//use function array_shift;
+//use function sprintf;
 
 /**
  * Result of a date-time string parsing.
