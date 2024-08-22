@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -30,10 +30,9 @@ final class LocalDateRange implements IteratorAggregate, Countable, JsonSerializ
      * @param LocalDate $start The start date, inclusive.
      * @param LocalDate $end   The end date, inclusive, validated as not before the start date.
      */
-    private function __construct(
-        private readonly LocalDate $start,
-        private readonly LocalDate $end,
-    ) {
+    private function __construct(LocalDate $start, LocalDate $end) {
+        $this->start = $start;
+        $this->end = $end;
     }
 
     /**
