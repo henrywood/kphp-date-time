@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -9,20 +9,20 @@ use JsonSerializable;
 /**
  * Represents a month-of-year such as January.
  */
-enum Month: int implements JsonSerializable
+final class Month: int implements JsonSerializable
 {
-    case JANUARY = 1;
-    case FEBRUARY = 2;
-    case MARCH = 3;
-    case APRIL = 4;
-    case MAY = 5;
-    case JUNE = 6;
-    case JULY = 7;
-    case AUGUST = 8;
-    case SEPTEMBER = 9;
-    case OCTOBER = 10;
-    case NOVEMBER = 11;
-    case DECEMBER = 12;
+    const JANUARY = 1;
+    const FEBRUARY = 2;
+    const MARCH = 3;
+    const APRIL = 4;
+    const MAY = 5;
+    const JUNE = 6;
+    const JULY = 7;
+    const AUGUST = 8;
+    const SEPTEMBER = 9;
+    const OCTOBER = 10;
+    const NOVEMBER = 11;
+    const DECEMBER = 12;
 
     /**
      * Returns the minimum length of this month in days.
@@ -31,6 +31,7 @@ enum Month: int implements JsonSerializable
      */
     public function getMinLength(): int
     {
+        // FIXME
         return match ($this) {
             Month::FEBRUARY => 28,
             Month::APRIL, Month::JUNE, Month::SEPTEMBER, Month::NOVEMBER => 30,
@@ -45,6 +46,7 @@ enum Month: int implements JsonSerializable
      */
     public function getMaxLength(): int
     {
+        // FIXME
         return match ($this) {
             Month::FEBRUARY => 29,
             Month::APRIL, Month::JUNE, Month::SEPTEMBER, Month::NOVEMBER => 30,
@@ -64,6 +66,7 @@ enum Month: int implements JsonSerializable
     {
         $leap = $leapYear ? 1 : 0;
 
+        // FIXME
         return match ($this) {
             Month::JANUARY => 1,
             Month::FEBRUARY => 32,
@@ -93,6 +96,7 @@ enum Month: int implements JsonSerializable
      */
     public function getLength(bool $leapYear): int
     {
+        // FIXME
         return match ($this) {
             Month::FEBRUARY => $leapYear ? 29 : 28,
             Month::APRIL, Month::JUNE, Month::SEPTEMBER, Month::NOVEMBER => 30,
@@ -139,6 +143,7 @@ enum Month: int implements JsonSerializable
      */
     public function toString(): string
     {
+        // FIXME
         return match ($this) {
             Month::JANUARY => 'January',
             Month::FEBRUARY => 'February',
