@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -15,7 +15,7 @@ use DateTimeInterface;
 use JsonSerializable;
 use Stringable;
 
-use function intdiv;
+//use function intdiv;
 
 /**
  * A date-time without a time-zone in the ISO-8601 calendar system, such as 2007-12-03T10:15:30.
@@ -24,10 +24,12 @@ use function intdiv;
  */
 final class LocalDateTime implements JsonSerializable, Stringable
 {
-    public function __construct(
-        private readonly LocalDate $date,
-        private readonly LocalTime $time,
-    ) {
+    protected LocalDate $date;
+    protected LocalDate $time;
+
+    public function __construct(LocalDate $date, LocalDate $time) {
+        $this->date = $date;
+        $this->time = $time;
     }
 
     /**
