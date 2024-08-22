@@ -26,6 +26,9 @@ use Stringable;
  */
 final class LocalDateRange implements IteratorAggregate, Countable, JsonSerializable, Stringable
 {
+    protected LocalDate $start;
+    protected LocalDate $end;
+    
     /**
      * @param LocalDate $start The start date, inclusive.
      * @param LocalDate $end   The end date, inclusive, validated as not before the start date.
