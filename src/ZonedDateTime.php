@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -14,8 +14,8 @@ use DateTimeInterface;
 use JsonSerializable;
 use Stringable;
 
-use function assert;
-use function intdiv;
+//use function assert;
+//use function intdiv;
 
 /**
  * A date-time with a time-zone in the ISO-8601 calendar system.
@@ -25,6 +25,11 @@ use function intdiv;
  */
 class ZonedDateTime implements JsonSerializable, Stringable
 {
+    private LocalDateTime $localDateTime;
+    private TimeZoneOffset $timeZoneOffset;
+    private TimeZone $timeZone;
+    private Instant $instant;
+    
     /**
      * Private constructor. Use a factory method to obtain an instance.
      *
@@ -36,11 +41,15 @@ class ZonedDateTime implements JsonSerializable, Stringable
      * @param Instant        $instant        The instant represented by this ZonedDateTime.
      */
     private function __construct(
-        private readonly LocalDateTime $localDateTime,
-        private readonly TimeZoneOffset $timeZoneOffset,
-        private readonly TimeZone $timeZone,
-        private readonly Instant $instant,
+        LocalDateTime $localDateTime,
+        TimeZoneOffset $timeZoneOffset,
+        TimeZone $timeZone,
+        Instant $instant,
     ) {
+        $this->localDateTime = $localDateTime;
+        $this->timeZoneOffset= $timeZoneOffset;
+        $this->timeZone = $timeZone;
+        $this->instant = $instant;
     }
 
     /**
