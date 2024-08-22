@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -8,10 +8,10 @@ use DateInterval;
 use JsonSerializable;
 use Stringable;
 
-use function assert;
-use function intdiv;
-use function preg_match;
-use function sprintf;
+//use function assert;
+//use function intdiv;
+//use function preg_match;
+//use function sprintf;
 
 /**
  * A date-based amount of time in the ISO-8601 calendar system, such as '2 years, 3 months and 4 days'.
@@ -20,6 +20,10 @@ use function sprintf;
  */
 final class Period implements JsonSerializable, Stringable
 {
+    private int $years;
+    private int $months;
+    private int $days;
+    
     /**
      * Private constructor. Use of() to obtain an instance.
      *
@@ -28,10 +32,13 @@ final class Period implements JsonSerializable, Stringable
      * @param int $days   The number of days.
      */
     private function __construct(
-        private readonly int $years,
-        private readonly int $months,
-        private readonly int $days,
+        int $years,
+        int $months,
+        int $days,
     ) {
+        $this->years = $years;
+        $this->months= $months;
+        $this->days = $days;
     }
 
     /**
