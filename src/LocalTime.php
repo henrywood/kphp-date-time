@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime;
 
@@ -18,11 +18,11 @@ use DateTimeInterface;
 use JsonSerializable;
 use Stringable;
 
-use function intdiv;
-use function rtrim;
-use function str_pad;
+//use function intdiv;
+//use function rtrim;
+//use function str_pad;
 
-use const STR_PAD_LEFT;
+//use const STR_PAD_LEFT;
 
 /**
  * A time without a time-zone in the ISO-8601 calendar system, such as 10:15:30.
@@ -43,6 +43,11 @@ final class LocalTime implements JsonSerializable, Stringable
     public const NANOS_PER_MILLI = 1_000_000;
     public const MILLIS_PER_SECOND = 1000;
 
+    private int $hour;
+    private int $minute;
+    private int $second;
+    private int $nano;
+    
     /**
      * Private constructor. Use of() to obtain an instance.
      *
@@ -52,11 +57,15 @@ final class LocalTime implements JsonSerializable, Stringable
      * @param int $nano   The nano-of-second, validated in the range 0 to 999,999,999.
      */
     private function __construct(
-        private readonly int $hour,
-        private readonly int $minute,
-        private readonly int $second,
-        private readonly int $nano,
+        int $hour,
+        int $minute,
+        int $second,
+        int $nano
     ) {
+        $this->hour = $hour;
+        $this->minute = $minute;
+        $this->second = $second;
+        $this->nano = $nano;
     }
 
     /**
@@ -643,7 +652,7 @@ final class LocalTime implements JsonSerializable, Stringable
             . ':'
             . ($this->minute < 10 ? '0' . $this->minute : $this->minute)
             . ($this->second !== 0 || $this->nano !== 0 ? ':' . ($this->second < 10 ? '0' . $this->second : $this->second) : '')
-            . ($this->nano !== 0 ? '.' . rtrim(str_pad((string) $this->nano, 9, '0', STR_PAD_LEFT), '0') : '');
+            . ($this->nano !== 0 ? '.' . rtrim(str_pad((string) $this->nano, 9, '0', \STR_PAD_LEFT), '0') : '');
     }
 
     /**
