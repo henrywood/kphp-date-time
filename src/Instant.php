@@ -7,14 +7,14 @@ namespace Brick\DateTime;
 use JsonSerializable;
 use Stringable;
 
-use function assert;
-use function is_int;
-use function rtrim;
-use function str_pad;
+//use function assert;
+//use function is_int;
+//use function rtrim;
+//use function str_pad;
 
-use const PHP_INT_MAX;
-use const PHP_INT_MIN;
-use const STR_PAD_LEFT;
+//use const PHP_INT_MAX;
+//use const PHP_INT_MIN;
+//use const STR_PAD_LEFT;
 
 /**
  * Represents a point in time, with a nanosecond precision.
@@ -31,10 +31,9 @@ final class Instant implements JsonSerializable, Stringable
      * @param int $epochSecond The number of seconds since the epoch of 1970-01-01T00:00:00Z.
      * @param int $nano        The nanosecond adjustment to the epoch second, validated in the range 0 to 999,999,999.
      */
-    private function __construct(
-        private readonly int $epochSecond,
-        private readonly int $nano,
-    ) {
+    private function __construct(int $epochSecond, int $nano) {
+        $this->epochSecond = $epochSecond;
+        $this->nano = $nano;
     }
 
     /**
@@ -93,7 +92,7 @@ final class Instant implements JsonSerializable, Stringable
         /** @var Instant|null $min */
         static $min = null;
 
-        return $min ??= new Instant(PHP_INT_MIN, 0);
+        return $min ??= new Instant(\PHP_INT_MIN, 0);
     }
 
     /**
@@ -106,7 +105,7 @@ final class Instant implements JsonSerializable, Stringable
         /** @var Instant|null $max */
         static $max = null;
 
-        return $max ??= new Instant(PHP_INT_MAX, 999_999_999);
+        return $max ??= new Instant(\PHP_INT_MAX, 999_999_999);
     }
 
     public function plus(Duration $duration): Instant
@@ -337,7 +336,7 @@ final class Instant implements JsonSerializable, Stringable
 
         if ($this->nano !== 0) {
             $nano = (string) $this->nano;
-            $nano = str_pad($nano, 9, '0', STR_PAD_LEFT);
+            $nano = str_pad($nano, 9, '0', \STR_PAD_LEFT);
             $nano = rtrim($nano, '0');
 
             $result .= '.' . $nano;
