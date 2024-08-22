@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 namespace Brick\DateTime\Clock;
 
@@ -16,7 +16,7 @@ final class ScaleClock implements Clock
     /**
      * The start time.
      */
-    private readonly Instant $startTime;
+    private Instant $startTime;
 
     /**
      * - a scale > 1 makes the time move at an accelerated pace;
@@ -28,8 +28,8 @@ final class ScaleClock implements Clock
      * @param int   $timeScale      The time scale.
      */
     public function __construct(
-        private readonly Clock $referenceClock,
-        private readonly int $timeScale,
+        private Clock $referenceClock,
+        private int $timeScale,
     ) {
         $this->startTime = $this->referenceClock->getTime();
     }
