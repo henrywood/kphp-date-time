@@ -97,7 +97,7 @@ final class Duration implements JsonSerializable, Stringable
         $allNegative = ($sign === '-');
         $secondsNegative = ($seconds !== '' && $seconds[0] === '-');
 
-        $nanos = str_pad($nanos, 9, '0', STR_PAD_RIGHT);
+        $nanos = str_pad($nanos, 9, '0', \STR_PAD_RIGHT);
 
         $days = (int) $days;
         $hours = (int) $hours;
