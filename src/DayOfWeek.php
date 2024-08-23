@@ -152,6 +152,26 @@ final class DayOfWeek implements JsonSerializable extends EmulatedEnumInt
     public static function SUNDAY() : static {
         return new static(7);
     }
+
+    private static $fromMap = [
+        1       =>      'MONDAY',
+        2      	=>      'TUESDAY',
+        3       =>      'WEDNESDAY',
+        4       =>      'THURSDAY',
+        5       =>      'FRIDAY',
+        6       =>      'SATURDAY',
+        7       =>      'SUNDAY',
+    ];
+
+    public static function tryFrom(int $value) : static {
+        if (isset(self::$fromMap[$value])) return new static(self::$fromMap[$value]);
+        throw new \Exception("No such enum value:".$value);
+    }
+
+    public static function from(int $value) : static {
+        if (isset(self::$fromMap[$value])) return new static(self::$fromMap[$value]);
+        throw new \Exception("No such enum value:".$value);
+    }   
     
     /**
      * Returns the current day-of-week in the given time-zone, according to the given clock.
