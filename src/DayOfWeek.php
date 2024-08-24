@@ -190,8 +190,10 @@ final class DayOfWeek extends EmulatedEnumInt implements JsonSerializable
      *
      * @return DayOfWeek[]
      */
-    public static function all(DayOfWeek $first = self::MONDAY()): array
+    public static function all(DayOfWeek $first = null): array
     {       
+        if (is_null($first)) $first = self::MONDAY();
+        
         $days = [];
         $current = $first;
 
