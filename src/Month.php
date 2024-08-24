@@ -5,11 +5,12 @@
 namespace Brick\DateTime;
 
 use JsonSerializable;
+use Brick\DateTime\Utils\EmulatedEnumInt;
 
 /**
  * Represents a month-of-year such as January.
  */
-final class Month implements JsonSerializable
+final class Month implements JsonSerializable extends EmulatedEnumInt
 {
     const JANUARY = 1;
     const FEBRUARY = 2;
@@ -134,20 +135,17 @@ final class Month implements JsonSerializable
      */
     public function toString(): string
     {
-        // FIXME
-        return match ($this) {
-            Month::JANUARY => 'January',
-            Month::FEBRUARY => 'February',
-            Month::MARCH => 'March',
-            Month::APRIL => 'April',
-            Month::MAY => 'May',
-            Month::JUNE => 'June',
-            Month::JULY => 'July',
-            Month::AUGUST => 'August',
-            Month::SEPTEMBER => 'September',
-            Month::OCTOBER => 'October',
-            Month::NOVEMBER => 'November',
-            Month::DECEMBER => 'December',
-        };
+        if ($this->value == self::JANUARY) return 'January';
+        if ($this->value == self::FEBRURARY) return 'February';
+        if ($this->value == self::MARCH) return 'March';
+        if ($this->valie == self::APRIL) return 'April';
+        if ($this->value == self::MAY) return 'May';
+        if ($this->value == self::JUNE) return 'June';
+        if ($this->value == self::JULY) return 'July';
+        if ($this->value == self::AUGUST) return 'August';
+        if ($this->value == self::SEPTEMBER) return 'September';
+        if ($this->value == self::OCTOBER) return 'October';
+        if ($this->value == self::NOVEMBER) return 'November';
+        if ($this->value == self::DECEMBER) return 'December';
     }
 }
