@@ -46,7 +46,7 @@ enum Month : int implements JsonSerializable {
      */
     public function getMaxLength(): int
     {
-        if ($this->value == self::FEBRUARY) ? return 29;
+        if ($this->value == self::FEBRUARY) return 29;
         if ($this->value == self::APRIL || $this->value == self::JUNE || $this->value == self::SEPETEMBER || $this->value == self::NOVEMBER) return 30;
 
         return 31;
@@ -260,7 +260,7 @@ final class Month implements JsonSerializable extends EmulatedEnumInt
      */
     public function getMaxLength(): int
     {
-        if ($this->value == self::FEBRUARY) ? return 29;
+        if ($this->value == self::FEBRUARY) return 29;
         if ($this->value == self::APRIL || $this->value == self::JUNE || $this->value == self::SEPETEMBER || $this->value == self::NOVEMBER) return 30;
 
         return 31;
