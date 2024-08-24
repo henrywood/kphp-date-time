@@ -9,7 +9,7 @@ use JsonSerializable;
 /**
  * Represents a month-of-year such as January.
  */
-final class Month: int implements JsonSerializable
+final class Month implements JsonSerializable
 {
     const JANUARY = 1;
     const FEBRUARY = 2;
@@ -31,12 +31,10 @@ final class Month: int implements JsonSerializable
      */
     public function getMinLength(): int
     {
-        // FIXME
-        return match ($this) {
-            Month::FEBRUARY => 28,
-            Month::APRIL, Month::JUNE, Month::SEPTEMBER, Month::NOVEMBER => 30,
-            default => 31,
-        };
+        if ($this->value == self::FEBRUARY) return 28;
+        if ($this->value == self::APRIL || $this->value == self::JUNE || $this->value == self::SEPTEMBER || $this->value == self::NOVEMBER) return 30;
+        
+        return 31;
     }
 
     /**
@@ -46,12 +44,10 @@ final class Month: int implements JsonSerializable
      */
     public function getMaxLength(): int
     {
-        // FIXME
-        return match ($this) {
-            Month::FEBRUARY => 29,
-            Month::APRIL, Month::JUNE, Month::SEPTEMBER, Month::NOVEMBER => 30,
-            default => 31,
-        };
+        if ($this->value == self::FEBRUARY) ? return 29;
+        if ($this->value == self::APRIL || $this->value == self::JUNE || $this->value == self::SEPETEMBER || $this->value == self::NOVEMBER) return 30;
+
+        return 31;
     }
 
     /**
@@ -66,21 +62,18 @@ final class Month: int implements JsonSerializable
     {
         $leap = $leapYear ? 1 : 0;
 
-        // FIXME
-        return match ($this) {
-            Month::JANUARY => 1,
-            Month::FEBRUARY => 32,
-            Month::MARCH => 60 + $leap,
-            Month::APRIL => 91 + $leap,
-            Month::MAY => 121 + $leap,
-            Month::JUNE => 152 + $leap,
-            Month::JULY => 182 + $leap,
-            Month::AUGUST => 213 + $leap,
-            Month::SEPTEMBER => 244 + $leap,
-            Month::OCTOBER => 274 + $leap,
-            Month::NOVEMBER => 305 + $leap,
-            Month::DECEMBER => 335 + $leap,
-        };
+        if ($this->value == self::JANUARY)    return 1;
+        if ($this->value == self::FEBRUARY)   return 32;
+        if ($this->value == self::MARCH)    return 60 + $leap;
+        if ($this->value == self::APRIL)    return 91 + $leap;
+        if ($this->value == self::MAY)     return 121 + $leap;
+        if ($this->value == self::JUNE)    return 152 + $leap;
+        if ($this->value == self::JULY)    return 182 + $leap;
+        if ($this->value == self::AUGUST)    return 213 + $leap;
+        if ($this->value == self::SEPTEMBER)    return 244 + $leap;
+        if ($this->value == self::OCTOBER)    return 274 + $leap;
+        if ($this->value == self::NOVEMBER)    return 305 + $leap;
+        if ($this->value == self::DECEMBER)    return 335 + $leap;
     }
 
     /**
@@ -96,12 +89,10 @@ final class Month: int implements JsonSerializable
      */
     public function getLength(bool $leapYear): int
     {
-        // FIXME
-        return match ($this) {
-            Month::FEBRUARY => $leapYear ? 29 : 28,
-            Month::APRIL, Month::JUNE, Month::SEPTEMBER, Month::NOVEMBER => 30,
-            default => 31,
-        };
+        if ($this->value == self::FEBRUARY) return ($leapYear) ? 29 : 28;
+        if ($this->value == self::APRIL || $this->value == self::JUNE || $this->value == self::SEPTEMBER || $this->value == self::NOVEMBER) return 30;
+
+        return 31;
     }
 
     /**
