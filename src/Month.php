@@ -152,7 +152,7 @@ enum Month : int implements JsonSerializable {
 }
 if (FALSE) {
 #endif
-final class Month implements JsonSerializable extends EmulatedEnumInt
+final class Month extends EmulatedEnumInt implements JsonSerializable
 {
     const JANUARY = 1;
     const FEBRUARY = 2;
