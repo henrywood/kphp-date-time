@@ -8,7 +8,7 @@ use JsonSerializable;
 use Brick\DateTime\Utility\EmulatedEnumInt;
 
 #ifndef KPHP
-enum DayOfWeek: string
+enum DayOfWeek: int
 {
     case MONDAY = 1;
     case TUESDAY = 2;
@@ -115,7 +115,7 @@ if (false) {
 /**
  * Represents a day-of-week such as Tuesday.
  */
-final class DayOfWeek implements JsonSerializable extends EmulatedEnumInt
+final class DayOfWeek extends EmulatedEnumInt implements JsonSerializable
 {
     const MONDAY = 1;
     const TUESDAY = 2;
