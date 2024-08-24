@@ -163,12 +163,12 @@ final class DayOfWeek implements JsonSerializable extends EmulatedEnumInt
         7       =>      'SUNDAY',
     ];
 
-    public static function tryFrom(int $value) : static {
+    public static function tryFrom(int|string $value) : static {
         if (isset(self::$fromMap[$value])) return new static(self::$fromMap[$value]);
         throw new \Exception("No such enum value:".$value);
     }
 
-    public static function from(int $value) : static {
+    public static function from(int|string $value) : static {
         if (isset(self::$fromMap[$value])) return new static(self::$fromMap[$value]);
         throw new \Exception("No such enum value:".$value);
     }   
